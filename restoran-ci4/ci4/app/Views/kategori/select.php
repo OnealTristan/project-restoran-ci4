@@ -2,29 +2,52 @@
 
 <?= $this->section('content') ?>
 
-<a href="<?= base_url('/admin/kategori/create') ?>" role="button" class="btn btn-primary">TAMBAH DATA</a>
+<?php 
 
-<h1> <?= $judul ?> </h1>
+    if (isset($_GET['page_page'])) {
+        $page = $_GET['page_page'];
+        $jumlah = 3;
+        $no = ($jumlah * $page) - $jumlah + 1;
+    } else {
+        $no = 1;
+    }
 
-<table class="table">
-    <tr>
-        <th>No</th>
-        <th>Kategori</th>
-        <th>Keterangan</th>
-        <th>Hapus</th>
-        <th>Ubah</th>
-    </tr>
-    <?php $no=1 ?>
-    <?php foreach($kategori as $key => $value): ?>
-    <tr>
-        <td><?= $no++ ?></td>
-        <td><?= $value['kategori'] ?></td>
-        <td><?= $value['keterangan'] ?></td>
-        <td><a href="<?= base_url() ?>/admin/kategori/delete/<?= $value['idkategori'] ?>">Hapus</a></td>
-        <td><a href="<?= base_url() ?>/admin/kategori/find/<?= $value['idkategori'] ?>">Ubah</a></td>
-    </tr>
-    <?php endforeach ?>
-</table>
-<?= $pager->links('group1', 'bootstrap') ?>
+?>
+
+<div class="row">
+
+    <div class="col-4">
+        <a href="<?= base_url('/admin/kategori/create') ?>" role="button" class="btn btn-primary">TAMBAH DATA</a>
+    </div>
+
+    <div class="col">
+        <h3> <?= $judul ?> </h3>
+    </div>
+
+</div>
+
+<div class="row mt-2">
+    <div class="col">
+        <table class="table">
+            <tr>
+                <th>No</th>
+                <th>Kategori</th>
+                <th>Keterangan</th>
+                <th>Aksi</th>
+                
+            </tr>
+            <?php foreach($kategori as $key => $value): ?>
+            <tr>
+                <td><?= $no++ ?></td>
+                <td><?= $value['kategori'] ?></td>
+                <td><?= $value['keterangan'] ?></td>
+                <td><a href="<?= base_url() ?>/admin/kategori/delete/<?= $value['idkategori'] ?>"><img src="<?= base_url('/icon/can.svg') ?>"></a>
+                <a href="<?= base_url() ?>/admin/kategori/find/<?= $value['idkategori'] ?>"><img src="<?= base_url('/icon/pen.svg') ?>"></a></td>
+            </tr>
+            <?php endforeach ?>
+        </table>
+        <?= $pager->links('page', 'bootstrap') ?>
+    </div>
+</div>
 
 <?= $this->endSection() ?>

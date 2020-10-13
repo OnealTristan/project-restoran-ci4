@@ -18,8 +18,8 @@ class Kategori extends BaseController
 		$model = new Kategori_M();
 		
 		$data = [
-			'judul' => 'SELECT DATA',
-			'kategori' => $model->paginate(2, 'group1'),
+			'judul' => 'DATA KATEGORI',
+			'kategori' => $model->paginate(3, 'page'),
 			'pager' =>$model->pager
 		];
 
@@ -59,9 +59,15 @@ class Kategori extends BaseController
 	public function update()
 	{
 		$model = new Kategori_M();
-		$model->save($_POST);
+		$id = $_POST['idkategori'];
 
-		return redirect()->to(base_url("/admin/kategori"));
+		if ($model->save($_POST) === FALSE) {
+			$error = $model->errors();
+			session()->setFlashdata('info', $error['kategori']);
+			return redirect()->to(base_url("/admin/kategori/find/$id"));
+		} else {
+			return redirect()->to(base_url("/admin/kategori"));
+		}
 	}
 
 	public function delete($id = null)
