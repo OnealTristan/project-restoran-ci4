@@ -1,40 +1,40 @@
-<?php namespace App\Controllers\Admin;
+<?php
+
+namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
-
 use App\Models\Kategori_M;
 
 class Kategori extends BaseController
 {
-	public function index()
-	{
-		// return view('welcome_message');
-		echo "<h1>Belajar CI4</h1>";
-	}
-
 	public function read()
 	{
 		$pager = \Config\Services::pager();
 		$model = new Kategori_M();
-		
+		$kategori = $model->findAll();
+
 		$data = [
 			'judul' => 'DATA KATEGORI',
-			'kategori' => $model->paginate(3, 'page'),
-			'pager' =>$model->pager
+			'kategori' => $kategori,
 		];
 
-		return view("kategori/select", $data);
+		echo view("Admin/Kategori/Select", $data);
 	}
-	
+
 	public function create()
 	{
-		echo view("kategori/insert");
+		$data = [
+			'judul'	=> "TAMBAH KATEGORI"
+		];
+
+		echo view("Admin/Kategori/Insert",$data);
 	}
 
 	public function insert()
 	{
 		$model = new Kategori_M();
-		if ($model->insert($_POST)===false) {
+
+		if ($model->insert($_POST) === false) {
 			$error = $model->errors();
 			session()->setFlashdata('info', $error['kategori']);
 			return redirect()->to(base_url("/admin/kategori/create"));
@@ -53,7 +53,7 @@ class Kategori extends BaseController
 			'kategori' => $kategori
 		];
 
-		return view("kategori/update", $data);
+		return view("Admin/Kategori/Update", $data);
 	}
 
 	public function update()
@@ -61,7 +61,7 @@ class Kategori extends BaseController
 		$model = new Kategori_M();
 		$id = $_POST['idkategori'];
 
-		if ($model->save($_POST) === FALSE) {
+		if ($model->save($_POST) === false) {
 			$error = $model->errors();
 			session()->setFlashdata('info', $error['kategori']);
 			return redirect()->to(base_url("/admin/kategori/find/$id"));
@@ -74,9 +74,10 @@ class Kategori extends BaseController
 	{
 		$model = new Kategori_M();
 		$model->delete($id);
+
 		return redirect()->to(base_url("/admin/kategori"));
 	}
 
-	//--------------------------------------------------------------------
+	//OKKY FIRMANSYAH RAMADHAN
 
 }

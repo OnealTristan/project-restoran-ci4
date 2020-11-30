@@ -2,13 +2,16 @@
 
 use App\Controllers\BaseController;
 
-class AdminPage extends BaseController
+class Adminpage extends BaseController
 {
 	public function index()
 	{
-		return view('template/admin');
+		$data = [
+			'judul'	=> "ADMIN PAGE"
+		];
+		return view('Template/Admin',$data);
 	}
 
-	//--------------------------------------------------------------------
+	//OKKY FIRMANSYAH RAMADHAN
 
 }

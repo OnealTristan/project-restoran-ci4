@@ -7,6 +7,6 @@ class Home extends BaseController
 		return view('welcome_message');
 	}
 
-	//--------------------------------------------------------------------
+	//OKKY FIRMANSYAH RAMADHAN
 
 }
