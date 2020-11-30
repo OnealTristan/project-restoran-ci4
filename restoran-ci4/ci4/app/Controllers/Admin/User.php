@@ -122,9 +122,4 @@ class User extends BaseController
 
     }
 
-    
-
-
-    //OKKY FIRMANSYAH RAMADHAN
-
 }

@@ -157,6 +157,4 @@ class Menu extends BaseController
         return redirect()->to(base_url("/admin/menu"));
     }
 
-    //OKKY FIRMANSYAH RAMADHAN
-
 }

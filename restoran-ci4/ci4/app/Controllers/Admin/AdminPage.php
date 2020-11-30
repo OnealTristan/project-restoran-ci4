@@ -12,6 +12,4 @@ class Adminpage extends BaseController
 		return view('Template/Admin',$data);
 	}
 
-	//OKKY FIRMANSYAH RAMADHAN
-
 }

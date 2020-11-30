@@ -39,8 +39,5 @@ class Orderdetail extends BaseController
             echo view("Admin/Orderdetail/Cari", $data);
         }
     }
-    
-
-	//OKKY FIRMANSYAH RAMADHAN
 
 }

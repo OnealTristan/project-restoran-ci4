@@ -81,6 +81,4 @@ class Order extends BaseController
         }
         }
 
-	//OKKY FIRMANSYAH RAMADHAN
-
 }

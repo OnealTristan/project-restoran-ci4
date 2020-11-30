@@ -46,6 +46,4 @@ class Pelanggan extends BaseController
 		return redirect()->to(base_url("/admin/pelanggan"));
 	}
 
-	//OKKY FIRMANSYAH RAMADHAN
-
 }

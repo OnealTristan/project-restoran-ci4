@@ -23,6 +23,4 @@ class Historypembelian extends BaseController
         return view('Front/Historypembelian',$data);
 	}
 
-	//OKKY FIRMANSYAH RAMADHAN
-
 }

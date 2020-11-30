@@ -103,6 +103,4 @@ class Auth extends BaseController
 
         return redirect()->to(base_url());
     }
-
-    //OKKY FIRMANSYAH RAMADHAN
 }

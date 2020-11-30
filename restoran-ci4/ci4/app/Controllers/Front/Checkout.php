@@ -30,6 +30,4 @@ class Checkout extends BaseController
 		return view('Front/Pembayaransuccess');
 	}
 
-	//OKKY FIRMANSYAH RAMADHAN
-
 }

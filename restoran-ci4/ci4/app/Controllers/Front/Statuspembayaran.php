@@ -24,6 +24,4 @@ class Statuspembayaran extends BaseController
         
 	}
 
-	//OKKY FIRMANSYAH RAMADHAN
-
 }

@@ -54,6 +54,4 @@ class Login extends BaseController
         return redirect()->to(base_url('/admin/login'));
     }
 
-	//OKKY FIRMANSYAH RAMADHAN
-
 }
